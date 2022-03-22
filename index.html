@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Song+Myung&display=swap"
+      rel="stylesheet"
+    />
+    <title>VIDEO🎬</title>
+    <style>
+      :root {
+        --color-first: #5463ff;
+        --color-second: #ffc300;
+      }
+      * {
+        box-sizing: border-box;
+        font-family: "Song Myung", serif;
+      }
+      body {
+        margin: 0;
+      }
+      #myVideo {
+        position: fixed;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+      }
+      .content {
+        position: fixed;
+        bottom: 0;
+        background-color: rgb(0, 0, 0, 0.5);
+        width: 100%;
+        color: #eeeeee;
+        padding: 20px;
+      }
+      #myBtn {
+        width: 150px;
+        height: 40px;
+        font-size: 17px;
+        font-weight: 600;
+        background-color: var(--color-first);
+        border: none;
+        color: var(--color-second);
+        cursor: pointer;
+      }
+      #myBtn:hover {
+        color: #eeeeee;
+        transition: 100ms ease-in-out;
+      }
+      .heading {
+        display: flex;
+      }
+      .heading audio {
+        margin-left: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <video id="myVideo" autoplay muted loop>
+      <source src="video/nature.mp4" type="video/mp4" />
+    </video>
+    <div class="content">
+      <div class="heading">
+      <h1>HEADING</h1>
+      <audio controls>
+        <source src="audio/both_of_us.ogg" type="audio/ogg" />
+        <source src="audio/both_of_us.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla officiis
+        beatae, excepturi optio voluptatem quis libero quas non at in nobis
+        iusto harum error architecto omnis unde corporis natus placeat?Lorem
+        ipsum dolor sit amet consectetur adipisicing elit. Dolore eaque possimus
+        quam, voluptatum nobis vel. Architecto perspiciatis, repellendus aperiam
+        doloremque impedit tempore. Aspernatur alias quisquam perferendis enim
+        omnis cumque natus!
+      </p>
+      <button id="myBtn" onclick="btnEvent()">PAUSE</button>
+    </div>
+    <script>
+      let video = document.querySelector("#myVideo");
+      const btn = document.getElementById("myBtn");
+      // const color1 = "#5463ff";
+      // const color2 = "#ffc300";
+
+      function btnEvent() {
+        if (video.paused) {
+          video.play();
+          btn.innerHTML = "PAUSE";
+          //   btn.style.backgroundColor = color1;
+          //   btn.style.color = color2;
+        } else {
+          video.pause();
+          btn.innerHTML = "PLAY";
+          //   btn.style.backgroundColor = color2;
+          //   btn.style.color = color1;
+        }
+      }
+    </script>
+  </body>
+</html>

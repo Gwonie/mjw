@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/8b24afa1f8.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      body {
+        margin: 0;
+        background-color: black;
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .cat {
+        margin: 0;
+        color: white;
+        font-size: 160px;
+        position: absolute;
+        animation: catMove 1.5s alternate infinite ease-in-out;
+      }
+      /* @keyframes catMove {
+        from {
+          margtop: 0;
+        }
+        to {
+          top: 60px;
+        }
+      } */
+
+      @keyframes catMove {
+        0% {
+          margin-top: 0px;
+        }
+        50% {
+          margin-top: -50px;
+        }
+        100% {
+          margin-top: 0px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cat">
+      <i class="fa-solid fa-cat"></i>
+    </div>
+    <script>
+      let mouseCursor = document.querySelector(".cat");
+      //window 객체에 scroll & mouse 이벤트를 추가하고 cursor함수 실행되도록 함
+      window.addEventListener("scroll", cursor);
+      window.addEventListener("mousemove", cursor);
+      //커스텀 커서의 left값과 top값을 커서의 XY좌표값과 일치시킴
+      function cursor(e) {
+        mouseCursor.style.left = e.pageX + "px";
+        mouseCursor.style.top = e.pageY + "px";
+        // mouseCursor.style.top = e.pageY - scrollY + "px";
+      }
+    </script>
+  </body>
+</html>

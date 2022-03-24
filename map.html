@@ -5,22 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MAP🎠</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+      rel="stylesheet"
+    />
     <script
       type="text/javascript"
       src="//dapi.kakao.com/v2/maps/sdk.js?appkey=98fa6089b716be099640d2441c008b6e"
     ></script>
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: "Noto Sans KR", sans-serif;
+      }
+      body {
+        text-align: center;
+        background-color: #eeeeee;
+      }
+      #map {
+        margin: auto;
+      }
+
+      button {
+        width: 240px;
+        height: 60px;
+        margin-right: 20px;
+        font-size: 20px;
+        font-weight: 600;
+        background-color: rgb(84, 99, 255);
+        border: none;
+        color: #ffc300;
+        cursor: pointer;
+      }
+
+      button:hover {
+        color: #eeeeee;
+        transition: 100ms ease-in-out;
+      }
+    </style>
   </head>
   <body>
-    <button onclick="getLocation()">위치</button>
+    <br />
+    <button onclick="getLocation()">좌표 🎪 지도 확인</button>
     <p id="demo"></p>
     <br />
     <div id="map" style="width: 500px; height: 400px"></div>
 
     <script>
       const x = document.querySelector("#demo");
-      let lat = 0.0;
-      let long = 0.0;
-      let a = 0.0;
+      let lat;
+      let long;
 
       function getLocation() {
         if (navigator.geolocation) {
@@ -35,44 +71,18 @@
         lat = position.coords.latitude;
         long = position.coords.longitude;
 
-        // createMap(lat, long);
-        // createMarker(lat, long);
-        markerWithInfo(lat, long);
+        //console.log("함수 안 " + lat, long);
+
+        console.log(`1 함수 안 lat : ${lat} / long: ${long}`);
+        markerWithInfo();
       }
 
-      // function createMap(lat, long) {
-      //   var mapContainer = document.getElementById("map"), // 지도를 표시할 div
-      //     mapOption = {
-      //       center: new kakao.maps.LatLng(lat, long), // 지도의 중심좌표
-      //       level: 3, // 지도의 확대 레벨
-      //     };
+      console.log(`2 함수 안 lat : ${lat} / long: ${long}`);
 
-      //   // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
-      //   var map = new kakao.maps.Map(mapContainer, mapOption);
-      // }
+      function markerWithInfo() {
+        console.log(`3-1 함수 안 lat : ${lat} / long: ${long}`);
+        // console.log(`3-2 함수 안 lat : ${lat2} / long: ${long2}`);
 
-      // function createMarker(lat, long) {
-      //   var mapContainer = document.getElementById("map"), // 지도를 표시할 div
-      //     mapOption = {
-      //       center: new kakao.maps.LatLng(lat, long), // 지도의 중심좌표
-      //       level: 3, // 지도의 확대 레벨
-      //     };
-
-      //   var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-
-      //   // 마커가 표시될 위치입니다
-      //   var markerPosition = new kakao.maps.LatLng(lat, long);
-
-      //   // 마커를 생성합니다
-      //   var marker = new kakao.maps.Marker({ position: markerPosition });
-
-      //   // 마커가 지도 위에 표시되도록 설정합니다
-      //   marker.setMap(map);
-
-      //   // 아래 코드는 지도 위의 마커를 제거하는 코드입니다 marker.setMap(null);
-      // }
-
-      function markerWithInfo(lat, long) {
         var mapContainer = document.getElementById("map"), // 지도를 표시할 div
           mapOption = {
             center: new kakao.maps.LatLng(lat, long), // 지도의 중심좌표
@@ -90,7 +100,7 @@
         // 마커가 지도 위에 표시되도록 설정합니다
         marker.setMap(map);
 
-        var iwContent = `<div style="padding:5px;">마포형청년일자리사업</div>`, // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+        var iwContent = `<div style="padding:10px; font-size:13px;">마포형청년일자리사업</div>`, // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
           iwPosition = new kakao.maps.LatLng(lat, long); //인포윈도우 표시 위치입니다
 
         // 인포윈도우를 생성합니다
@@ -99,11 +109,9 @@
           content: iwContent,
         });
 
-        // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+        // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다`
         infowindow.open(map, marker);
       }
-
-      //   window.addEventListener("load", getLocation());
     </script>
   </body>
 </html>

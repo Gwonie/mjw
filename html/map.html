@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MAP🎠</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin="crossorigin"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
       rel="stylesheet"
@@ -44,6 +48,20 @@
         color: #eeeeee;
         transition: 100ms ease-in-out;
       }
+
+      #map {
+        width: 500px;
+        height: 400px;
+      }
+
+      #info {
+        width: 170px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+      }
     </style>
   </head>
   <body>
@@ -51,8 +69,7 @@
     <button onclick="getLocation()">좌표 🎪 지도 확인</button>
     <p id="demo"></p>
     <br />
-    <div id="map" style="width: 500px; height: 400px"></div>
-
+    <div id="map"></div>
     <script>
       const x = document.querySelector("#demo");
       let lat;
@@ -71,36 +88,43 @@
         lat = position.coords.latitude;
         long = position.coords.longitude;
 
-        //console.log("함수 안 " + lat, long);
-
-        console.log(`1 함수 안 lat : ${lat} / long: ${long}`);
-        markerWithInfo();
+        // markerWithInfo();
+        markerInImage();
       }
 
-      console.log(`2 함수 안 lat : ${lat} / long: ${long}`);
-
-      function markerWithInfo() {
-        console.log(`3-1 함수 안 lat : ${lat} / long: ${long}`);
-        // console.log(`3-2 함수 안 lat : ${lat2} / long: ${long2}`);
-
+      function markerInImage() {
         var mapContainer = document.getElementById("map"), // 지도를 표시할 div
           mapOption = {
             center: new kakao.maps.LatLng(lat, long), // 지도의 중심좌표
-            level: 3, // 지도의 확대 레벨
+            level: 4, // 지도의 확대 레벨
           };
 
-        var map = new kakao.maps.Map(mapContainer, mapOption);
+        var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
-        // 마커가 표시될 위치입니다
-        var markerPosition = new kakao.maps.LatLng(lat, long);
+        var imageSrc = "../img/pin_icon.png", // 마커이미지의 주소입니다
+          imageSize = new kakao.maps.Size(74, 79), // 마커이미지의 크기입니다
+          imageOption = {
+            offset: new kakao.maps.Point(27, 69),
+          }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+
+        // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+        var markerImage = new kakao.maps.MarkerImage(
+            imageSrc,
+            imageSize,
+            imageOption
+          ),
+          markerPosition = new kakao.maps.LatLng(lat, long); // 마커가 표시될 위치입니다
 
         // 마커를 생성합니다
-        var marker = new kakao.maps.Marker({ position: markerPosition });
+        var marker = new kakao.maps.Marker({
+          position: markerPosition,
+          image: markerImage, // 마커이미지 설정
+        });
 
         // 마커가 지도 위에 표시되도록 설정합니다
         marker.setMap(map);
 
-        var iwContent = `<div style="padding:10px; font-size:13px;">마포형청년일자리사업</div>`, // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+        var iwContent = '<div id="info">마포청년일자리사업</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
           iwPosition = new kakao.maps.LatLng(lat, long); //인포윈도우 표시 위치입니다
 
         // 인포윈도우를 생성합니다
@@ -109,7 +133,7 @@
           content: iwContent,
         });
 
-        // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다`
+        // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
         infowindow.open(map, marker);
       }
     </script>

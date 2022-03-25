@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .div1 > .red {
+        color: red;
+        text-shadow: 2px 2px orange;
+      }
+      /* 공백을 주면 하위 선택자를 찾음 */
+      /* > 이 들어가면 직계자식 선택자만 찾음*/
+
+      .blue {
+        color: blue;
+      }
+      #grad1 {
+        height: 200px;
+        background-color: red; /* For browsers that do not support gradients */
+        background-image: linear-gradient(red, yellow);
+      }
+      #grad2 {
+        height: 200px;
+        background-color: red;
+        background-image: linear-gradient(to bottom right, red, yellow);
+      }
+      #grad3 {
+        height: 150px;
+        width: 200px;
+        background-color: tomato;
+        background: radial-gradient(tomato, rgb(252, 255, 80), dodgerblue);
+      }
+      #grad4 {
+        height: 150px;
+        width: 200px;
+        background-color: tomato;
+        background: radial-gradient(
+          tomato,
+          rgb(252, 255, 80),
+          green,
+          dodgerblue
+        );
+      }
+      #grad5 {
+        height: 200px;
+        width: 200px;
+        background-color: red;
+        background: conic-gradient(red, yellow, green, blue, black);
+      }
+      .box-shadow {
+        width: 200px;
+        height: 200px;
+        background-color: dodgerblue;
+        box-shadow: 10px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="div1">
+      <p class="red">Hi Red</p>
+      <div class="div2">
+        <p class="red">I'm Red</p>
+      </div>
+    </div>
+    <p class="blue">Hi Blue</p>
+    <div id="grad1"></div>
+    <div id="grad2"></div>
+    <div id="grad3"></div>
+    <div id="grad4"></div>
+    <div id="grad5"></div>
+    <div class="box-shadow"></div>
+  </body>
+</html>

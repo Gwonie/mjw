@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/ghost_style2.css" />
+    <link rel="stylesheet" href="../css/snow_style.css" />
+  </head>
+  <body>
+    <div class="ghost">
+      <div class="body">
+        <div class="face">
+          <div class="eye"></div>
+          <div class="eye"></div>
+          <div class="mouth"></div>
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="leg leg1"></div>
+        <div class="leg"></div>
+        <div class="leg leg2"></div>
+        <div class="leg"></div>
+        <div class="leg leg3"></div>
+      </div>
+    </div>
+    <div class="snow"></div>
+    <script>
+      function createSnow() {
+        const el = document.createElement("div");
+        el.classList.add("snow");
+        el.style.marginLeft = randomPosition() + "px";
+        document.body.appendChild(el); // document body요소의 자식 요소로 추가
+      }
+      function randomPosition() {
+        return Math.floor(Math.random() * window.innerWidth);
+        // 웹브라우저 안에서의 너비가 나올 수 있도록 지정
+      }
+      for (let i = 0; i < 300; i++) {
+        createSnow();
+      }
+
+      document.body.addEventListener("mousemove", function (e) {
+        console.log(e);
+        document.querySelector(".ghost").style.left = e.pageX + "px";
+        document.querySelector(".ghost").style.top = e.pageY + "px";
+      });
+    </script>
+  </body>
+</html>

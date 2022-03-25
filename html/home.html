@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --color-first: #fffcf5;
+        --color-second: #f1e0ac;
+        --color-third: #74959a;
+        --color-fourth: #495371;
+      }
+      * {
+        font-family: "Noto Sans KR", sans-serif;
+        /* box-sizing: border-box */
+      }
+      body {
+        margin: 0;
+        background-color: var(--color-second);
+        padding: 10px;
+      }
+      /* 다 div로 이루어질 수 있음 */
+      header {
+        padding: 10px 0;
+        /* border: 1px solid #000; */
+        background-color: var(--color-first);
+        text-align: center;
+      }
+      nav {
+        background-color: var(--color-third);
+        padding: 7px 0;
+        /* border: 1px solid #000; */
+        overflow: hidden;
+      }
+      nav ul {
+        display: flex;
+        margin: 0 10px;
+        padding: 0;
+        /* border: 1px solid #000; */
+      }
+      nav li {
+        padding: 5px;
+        list-style: none;
+        /* border: 1px solid #000; */
+      }
+      .right-items {
+        margin-left: auto;
+      }
+      a {
+        text-decoration: none;
+      }
+      nav a:link,
+      a:visited {
+        color: var(--color-first);
+      }
+      nav a:hover {
+        color: var(--color-second);
+      }
+      content {
+        display: flex;
+      }
+      .contents {
+        background-color: var(--color-first);
+        margin: 0;
+        padding: 0 15px;
+        /* border: 1px solid #000; */
+      }
+      .contents img {
+        display: block;
+      }
+      .left-contents img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      .right-contents img {
+        width: 100%;
+        height: 100px;
+        object-fit: cover;
+      }
+      .left-contents {
+        width: 80%;
+        margin-right: 10px;
+      }
+      .right-contents {
+        width: 20%;
+      }
+      .first-items {
+        margin-top: 12px;
+        padding-top: 12px;
+      }
+      .last-items {
+        margin-bottom: 0;
+        padding-bottom: 12px;
+      }
+      .img-box {
+        background-color: var(--color-third);
+      }
+      footer {
+        text-align: center;
+        margin: 12px 0 0 0;
+        padding: 21px 0;
+        background-color: var(--color-third);
+        color: var(--color-first);
+        /* border: 1px solid #000; */
+      }
+      @media screen and (max-width: 768px) {
+        content {
+          display: block;
+        }
+        .left-contents {
+          width: 100%;
+        }
+        .right-contents {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>WELCOME😉</h1>
+      <h4>This is my website!</h4>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="">Link1</a></li>
+        <li><a href="">Link2</a></li>
+        <li><a href="">Link3</a></li>
+        <div class="right-items">
+          <li><a href="">Link4</a></li>
+        </div>
+      </ul>
+    </nav>
+    <content>
+      <div class="left-contents">
+        <div class="contents content1">
+          <h2 class="first-items">Title</h2>
+          <h5>Description</h5>
+          <img src="../img/img.jpg" alt="" />
+          <p>Description</p>
+          <p class="last-items">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis
+            similique quae nemo amet, sit, nisi at dicta quos, laboriosam quo
+            quis minima et eaque dolor suscipit voluptas culpa inventore iste?
+          </p>
+        </div>
+        <div class="contents content2">
+          <h2 class="first-items">Title</h2>
+          <h5>Description</h5>
+          <img src="../img/img.jpg" alt="" />
+          <p>Description</p>
+          <p class="last-items">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa nam
+            facere aliquid eveniet quas iusto magnam in non consequatur labore
+            tempora doloremque libero, voluptatem excepturi ex, nesciunt
+            praesentium iste consectetur!
+          </p>
+        </div>
+      </div>
+      <div class="right-contents">
+        <div class="contents content3">
+          <h2 class="first-items">Title</h2>
+          <img src="../img/img.jpg" alt="" />
+          <p class="last-items">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
+            libero rerum eius asperiores eveniet modi iusto dolorum saepe neque
+            recusandae quaerat doloribus tempore nam soluta, dolores, corporis,
+            similique fugiat! Quas?
+          </p>
+        </div>
+        <div class="contents content4">
+          <h3 class="first-items">Title</h3>
+          <img src="../img/img.jpg" alt="" />
+          <img src="../img/img2.jpg" alt="" />
+          <img class="last-items" src="../img/img3.jpg" alt="" />
+        </div>
+        <div class="contents content5">
+          <h3 class="first-items">Contact Us</h3>
+          <p class="last-items">To here!!</p>
+        </div>
+      </div>
+    </content>
+    <footer>
+      <p>FOOTER</p>
+    </footer>
+  </body>
+</html>

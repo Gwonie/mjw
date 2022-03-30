@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .myStyle {
+        background-color: tomato;
+        width: 200px;
+        height: 100px;
+        color: dodgerblue;
+      }
+      .newStyle {
+        background-color: dodgerblue;
+        width: 200px;
+        height: 200px;
+        color: tomato;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="myDiv" class="myStyle" onclick="myFunction()">
+      <p>click me!</p>
+    </div>
+    <script>
+      function myFunction() {
+        document.querySelector("#myDiv").classList.toggle("newStyle");
+      }
+    </script>
+  </body>
+</html>

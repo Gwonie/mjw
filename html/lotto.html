@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LOTTO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        font-family: "Jua", sans-serif;
+        font-size: 20px;
+      }
+      body {
+        text-align: center;
+        padding-top: 10%;
+        padding-bottom: 10%;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="createNum">로또 번호 생성</button>
+    <br />
+    <div id="lottoNum"></div>
+
+    <script>
+      const createNum = document.querySelector("#createNum");
+      const lottoNum = document.querySelector("#lottoNum");
+
+      function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min;
+      }
+
+      let testString = "";
+
+      const handleLottoBtnClick = () => {
+        let nums = [];
+        while (nums.length < 7) {
+          let tmp = getRandomInt(1, 100);
+          if (!nums.includes(tmp)) {
+            nums.push(tmp);
+          }
+        }
+        // testString += `${nums.toString()} <br>`;
+        console.log(nums);
+        // lottoNum.innerHTML = nums;
+        let createP = document.createElement("p");
+        lottoNum.appendChild(createP);
+        createP.innerHTML = nums;
+      };
+
+      createNum.addEventListener("click", handleLottoBtnClick);
+    </script>
+  </body>
+</html>

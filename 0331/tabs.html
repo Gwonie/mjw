@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabs</title>
+    <style>
+      .tab {
+        overflow: hidden;
+        border: 1px solid #fdd7aa;
+        background-color: #ffa8a8;
+      }
+
+      .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+      }
+
+      .tab button:hover {
+        background-color: #f6ffa4;
+      }
+
+      .tab button.active {
+        background-color: #f6ffa4;
+      }
+
+      .tabcontent {
+        display: none;
+        background-color: #b6ffce;
+        padding: 6px 12px;
+        border: 1px solid #fdd7aa;
+        border-top: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tab">
+      <button class="tablinks" onclick="openCity(event, 'Seoul')">Seoul</button>
+      <button class="tablinks" onclick="openCity(event, 'London')">
+        London
+      </button>
+      <button class="tablinks" onclick="openCity(event, 'NewYork')">
+        NewYork
+      </button>
+    </div>
+
+    <div class="tabcontent" id="Seoul">
+      <h3>Seoul</h3>
+      <p>Seoul is a city of Korea.</p>
+    </div>
+    <div class="tabcontent" id="London">
+      <h3>London</h3>
+      <p>London is a city of United Kingdom.</p>
+    </div>
+    <div class="tabcontent" id="NewYork">
+      <h3>NewYork</h3>
+      <p>NewYork is a city of United State of America.</p>
+    </div>
+
+    <script>
+      function openCity(e, city) {
+        const tabcontent = document.querySelectorAll(".tabcontent");
+        console.log(tabcontent[0].style);
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+
+        const tablinks = document.querySelectorAll(".tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].classList.remove("active");
+        }
+
+        document.querySelector(`#${city}`).style.display = "block";
+
+        e.target.className += " active";
+      }
+    </script>
+  </body>
+</html>

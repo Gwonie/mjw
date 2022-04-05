@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --tab-bg-color1: #ff6b6b;
+        --tab-bg-color2: #ffd93d;
+        --tab-bg-color3: #6bcb77;
+        --tab-bg-color4: #4d96ff;
+      }
+      body {
+        font-family: "Work Sans", sans-serif;
+      }
+      .tablink {
+        background-color: #555;
+        color: white;
+        text-shadow: 1px 1px 2px #777;
+
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        font-size: 17px;
+        width: 25%;
+      }
+      .tablink:hover {
+        background-color: #777;
+      }
+
+      .tabcontent {
+        color: white;
+        text-shadow: 1px 1px 2px #777;
+        display: none;
+        padding: 50px;
+        text-align: center;
+      }
+
+      #Seoul {
+        background-color: var(--tab-bg-color1);
+      }
+      #Tokyo {
+        background-color: var(--tab-bg-color2);
+      }
+      #London {
+        background-color: var(--tab-bg-color3);
+      }
+      #NewYork {
+        background-color: var(--tab-bg-color4);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tabcontent" id="Seoul">
+      <h1>Seoul</h1>
+      <p>Seoul is the city of of Korea.</p>
+    </div>
+    <div class="tabcontent" id="Tokyo">
+      <h1>Tokyo</h1>
+      <p>Tokyo is the city of Japan.</p>
+    </div>
+    <div class="tabcontent" id="London">
+      <h1>London</h1>
+      <p>London is the city of United Kingdom.</p>
+    </div>
+    <div class="tabcontent" id="NewYork">
+      <h1>NewYork</h1>
+      <p>NewYork is the city of United States of America.</p>
+    </div>
+
+    <button
+      class="tablink"
+      onclick="openCity('Seoul', this, '#ff6b6b')"
+      id="defaultOpen"
+    >
+      Seoul
+    </button>
+    <button class="tablink" onclick="openCity('Tokyo', this, '#FFD93D')">
+      Tokyo</button
+    ><button class="tablink" onclick="openCity('London', this, '#6BCB77')">
+      London</button
+    ><button class="tablink" onclick="openCity('NewYork', this, '#4D96FF')">
+      NewYork
+    </button>
+
+    <script>
+      function openCity(cityName, elmnt, color) {
+        let i;
+
+        const tabcontent = document.querySelectorAll(".tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+
+        const tablinks = document.querySelectorAll(".tablink");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].style.backgroundColor = "";
+        }
+
+        document.querySelector(`#${cityName}`).style.display = "block";
+
+        elmnt.style.backgroundColor = color;
+      }
+      document.querySelector("#defaultOpen").click();
+    </script>
+  </body>
+</html>

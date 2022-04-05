@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3 id="hi">안녕하세요</h3>
+    <h2 id="hello">반가워요</h2>
+
+    <input type="text" id="name" onkeyup="printName()" />
+    <div id="result"></div>
+
+    <hr />
+
+    <input type="text" id="content" />
+    <button onclick="printAlert()">버튼</button>
+
+    <script>
+      const hi = document.querySelector("#hi");
+      //   hi.innerHTML = "반가워요";
+
+      //   const changeTexts = () => {
+      //     hi.innerText = "반가워요";
+      //     document.querySelector("#hello").innerHTML = "반가워요, 민지원입니다:)";
+      //   };
+
+      //   setTimeout(changeTexts, 4000);
+
+      setTimeout(() => {
+        hi.innerText = "반가워요";
+        document.querySelector("#hello").innerHTML = "반가워요, 민지원입니다:)";
+      }, 4000);
+
+      // input값 div에 찍기
+      const name = document.querySelector("#name");
+      const result = document.querySelector("#result");
+      const printName = () => {
+        console.log(name.value);
+        result.innerHTML = name.value;
+      };
+
+      const content = document.querySelector("#content");
+      function printAlert() {
+        let value = content.value;
+        if (
+          value === null ||
+          value === "" ||
+          value === undefined ||
+          value === NaN
+        ) {
+          alert("값을 입력해주세요.");
+        } else {
+          alert(value);
+        }
+      }
+    </script>
+  </body>
+</html>

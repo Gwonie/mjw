@@ -17,8 +17,22 @@ body {
   text-align: center;
 }
 
-.material-icons {
+.sth.sth2 {
   font-size: 10rem;
+}
+
+.material-icons.rocket_launch {
+  font-size: 12rem;
+  color: tomato;
+}
+
+.rocket {
+  font-size: 8rem;
+  color: yellowgreen;
+}
+
+#public {
+  color: blue;
 }
 
 .lg-text {

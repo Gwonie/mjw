@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="header">
+      <nav>
+        <img src="images/logo.png" alt="" />
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Men</a></li>
+          <li><a href="#">Women</a></li>
+          <li><a href="#">Kids</a></li>
+          <li><a href="#">Home & Living</a></li>
+        </ul>
+      </nav>
+      <div class="text-box">
+        <h1>Great Discount On Latest Collection</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut rem ab,
+          impedit ex nesciunt debitis voluptate id,
+        </p>
+        <a href="#">Shop Now</a>
+      </div>
+      <div class="user-box">
+        <img id="updateImages" src="images/user.png" alt="" />
+      </div>
+    </div>
+    <div class="backimg" id="backimg1">안녕하세요^^</div>
+    <div class="backimg" id="backimg2">카페 좋아요!!!</div>
+    <script>
+      const updateImages = ["cafe_late", "coffee", "life", "rest", "user"];
+
+      function changeImages() {
+        const idxNum = Math.floor(Math.random() * updateImages.length);
+        const imgId = document.getElementById("updateImages");
+
+        imgId.src = `images/${updateImages[idxNum]}.png`;
+      }
+
+      setInterval(changeImages, 2000);
+    </script>
+  </body>
+</html>
